@@ -6,7 +6,7 @@
 /*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 10:37:23 by bikourar          #+#    #+#             */
-/*   Updated: 2024/04/18 15:43:47 by bikourar         ###   ########.fr       */
+/*   Updated: 2024/04/24 20:07:17 by bikourar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,11 @@ void	coordition(t_inf *d, t_cor *pos)
 	int		j;
 
 	i = -1;
-	pos->_y = 0;
-	pos->_x = 0;
 	pos->nb_cool = 0;
 	while (d->p_[++i])
 	{
-		j = 0;
-		while (d->p_[i][j])
+		j = -1;
+		while (d->p_[i][++j])
 		{
 			if (d->p_[i][j] == 'C')
 				pos->nb_cool++;
@@ -74,7 +72,11 @@ void	coordition(t_inf *d, t_cor *pos)
 				pos->_y = i;
 				pos->_x = j;
 			}
-			j++;
+			if (d->p_[i][j] == 69)
+			{
+				pos->e_y = i;
+				pos->e_x = j;
+			}
 		}
 	}
 }
@@ -83,11 +85,6 @@ void	flood_fil(char **map, int x, int y)
 {
 	if (map[y][x] == '1' || map[y][x] == 'V')
 		return ;
-	else if (map[y][x] == 'E')
-	{
-		map[y][x] = 'R';
-		return ;
-	}
 	map[y][x] = 86;
 	flood_fil(map, x, y + 1);
 	flood_fil(map, x, y - 1);

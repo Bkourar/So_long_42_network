@@ -6,7 +6,7 @@
 /*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 06:43:15 by bikourar          #+#    #+#             */
-/*   Updated: 2024/04/17 22:21:32 by bikourar         ###   ########.fr       */
+/*   Updated: 2024/04/24 20:46:27 by bikourar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ typedef struct coordition
 	int	nb_move;
 	int	_x;
 	int	_y;
+	int	e_x;
+	int	e_y;
 }	t_cor;
 typedef struct information
 {
@@ -97,6 +99,7 @@ void	flood_fil(char **map, int x, int y);
 void	free_ary(char **argement);
 void	open_win(t_inf *fo);
 void	draw_map(t_inf *dr);
+void	add_move(t_cor *cor);
 int		ft_strcmp(char	const *s1, char const *s2);
 void	ft_putchar(char *str);
 char	*ft_itoa(int n);

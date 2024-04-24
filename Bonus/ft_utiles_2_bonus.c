@@ -6,7 +6,7 @@
 /*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 15:01:40 by bikourar          #+#    #+#             */
-/*   Updated: 2024/04/18 16:19:55 by bikourar         ###   ########.fr       */
+/*   Updated: 2024/04/24 21:03:54 by bikourar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ void	coordition_1(char **arg_v, t_cor *pos)
 	int		i;
 	int		j;
 
-	i = -1;
+	i = 0;
 	pos->nb_cool = 0;
-	while (arg_v[++i])
+	while (arg_v[i])
 	{
 		j = -1;
 		while (arg_v[i][++j])
@@ -90,9 +90,15 @@ void	coordition_1(char **arg_v, t_cor *pos)
 				pos->nb_cool++;
 			if (arg_v[i][j] == 80)
 			{
-				pos->_x = j;
 				pos->_y = i;
+				pos->_x = j;
+			}
+			if (arg_v[i][j] == 69)
+			{
+				pos->e_y = i;
+				pos->e_x = j;
 			}
 		}
+		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 06:43:15 by bikourar          #+#    #+#             */
-/*   Updated: 2024/04/18 16:19:29 by bikourar         ###   ########.fr       */
+/*   Updated: 2024/04/24 21:06:29 by bikourar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ typedef struct coordition
 	int	nb_ghost;
 	int	_x;
 	int	_y;
+	int	e_x;
+	int	e_y;
 }	t_cor;
 typedef struct information
 {
@@ -145,5 +147,4 @@ void	draw_ghost(t_inf *data, int x, int y);
 int		ghost_a(t_inf *data);
 int		ghost_ai(t_inf *data, int *x, int *y, int l);
 void	put_scorce(t_inf *f);
-char	*ft_putstr(char *str);
 #endif

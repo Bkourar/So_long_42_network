@@ -8,7 +8,7 @@ SRCS = ./Mandatory/so_long.c ./Mandatory/get_next_line.c ./Mandatory/get_next_ut
 SRCS_BONUS = ./Bonus/so_long_bonus.c ./Bonus/get_next_bonus.c ./Bonus/get_utiles_bonus.c \
 		./Bonus/ft_utiles_bonus.c ./Bonus/ft_split_bonus.c ./Bonus/draw_func_bonus.c \
 		./Bonus/ft_utiles_1_bonus.c ./Bonus/ft_utiles_2_bonus.c ./Bonus/ft_itoa_bonus.c \
-		./Bonus/draw_func1_bonus.c ./Bonus/move_func_bonus.c ./Bonus/move_ghost_bonus.c ./Bonus/gost.c
+		./Bonus/draw_func1_bonus.c ./Bonus/move_func_bonus.c ./Bonus/move_ghost_bonus.c ./Bonus/gost_bonus.c
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 CFLAGS = -Wall -Werror -Wextra -Imlx

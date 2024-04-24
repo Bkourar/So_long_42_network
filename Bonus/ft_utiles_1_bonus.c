@@ -6,7 +6,7 @@
 /*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 10:37:23 by bikourar          #+#    #+#             */
-/*   Updated: 2024/04/18 15:58:37 by bikourar         ###   ########.fr       */
+/*   Updated: 2024/04/24 21:13:18 by bikourar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,6 @@ void	flood_fil(char **map, int x, int y)
 {
 	if (map[y][x] == '1' || map[y][x] == 'V')
 		return ;
-	else if (map[y][x] == 'E')
-	{
-		map[y][x] = 'R';
-		return ;
-	}
 	map[y][x] = 86;
 	flood_fil(map, x, y + 1);
 	flood_fil(map, x, y - 1);

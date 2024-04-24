@@ -6,7 +6,7 @@
 /*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 15:01:40 by bikourar          #+#    #+#             */
-/*   Updated: 2024/04/17 22:22:07 by bikourar         ###   ########.fr       */
+/*   Updated: 2024/04/24 21:00:25 by bikourar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void	coordition_1(char **arg_v, t_cor *pos)
 	pos->nb_cool = 0;
 	while (arg_v[i])
 	{
-		j = 0;
-		while (arg_v[i][j])
+		j = -1;
+		while (arg_v[i][++j])
 		{
 			if (arg_v[i][j] == 'C')
 				pos->nb_cool++;
@@ -73,8 +73,19 @@ void	coordition_1(char **arg_v, t_cor *pos)
 				pos->_y = i;
 				pos->_x = j;
 			}
-			j++;
+			if (arg_v[i][j] == 69)
+			{
+				pos->e_y = i;
+				pos->e_x = j;
+			}
 		}
 		i++;
 	}
+}
+
+void	add_move(t_cor *cor)
+{
+	cor->nb_move++;
+	write(1, "MOVES ", 7);
+	(ft_putchar(ft_itoa(cor->nb_move)), write(1, "\n", 1));
 }
