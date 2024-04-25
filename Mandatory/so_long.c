@@ -6,7 +6,7 @@
 /*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 06:32:14 by bikourar          #+#    #+#             */
-/*   Updated: 2024/04/24 21:17:17 by bikourar         ###   ########.fr       */
+/*   Updated: 2024/04/25 14:32:18 by bikourar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		if (comparison(av[1], ".ber"))
-			return (1);
+			return (write(2, "Error\ninvalid extension", 24), 1);
 		if (parse1(av, &_inf))
 			return (write(2, "Error\ninvalide argment", 23), 1);
 		_inf.info.nb_move = 0;

@@ -6,7 +6,7 @@
 /*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 06:43:15 by bikourar          #+#    #+#             */
-/*   Updated: 2024/04/24 21:06:29 by bikourar         ###   ########.fr       */
+/*   Updated: 2024/04/25 14:15:28 by bikourar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,31 +47,7 @@
 # define GHOST_G_R2 "./Fond/Ghost/G/ghost_right_2.xpm"
 # define GHOST_G_U1 "./Fond/Ghost/G/ghost_up_1.xpm"
 # define GHOST_G_U2 "./Fond/Ghost/G/ghost_up_2.xpm"
-# define GHOST_Y_D1 "./Fond/Ghost/Y/ghost_down_1.xpm"
-# define GHOST_Y_D2 "./Fond/Ghost/Y/ghost_down_2.xpm"
-# define GHOST_Y_L1 "./Fond/Ghost/Y/ghost_left_1.xpm"
-# define GHOST_Y_L2 "./Fond/Ghost/Y/ghost_left_2.xpm"
-# define GHOST_Y_R1 "./Fond/Ghost/Y/ghost_right_1.xpm"
-# define GHOST_Y_R2 "./Fond/Ghost/Y/ghost_right_2.xpm"
-# define GHOST_Y_U1 "./Fond/Ghost/Y/ghost_up_1.xpm"
-# define GHOST_Y_U2 "./Fond/Ghost/Y/ghost_up_2.xpm"
-# define GHOST_B_D1 "./Fond/Ghost/B/ghost_down_1.xpm"
-# define GHOST_B_D2 "./Fond/Ghost/B/ghost_down_2.xpm"
-# define GHOST_B_L1 "./Fond/Ghost/B/ghost_left_1.xpm"
-# define GHOST_B_L2 "./Fond/Ghost/B/ghost_left_2.xpm"
-# define GHOST_B_R1 "./Fond/Ghost/B/ghost_right_1.xpm"
-# define GHOST_B_R2 "./Fond/Ghost/B/ghost_right_2.xpm"
-# define GHOST_B_U1 "./Fond/Ghost/B/ghost_up_1.xpm"
-# define GHOST_B_U2 "./Fond/Ghost/B/ghost_up_2.xpm"
-# define GHOST_R_D1 "./Fond/Ghost/R/ghost_down_1.xpm"
-# define GHOST_R_D2 "./Fond/Ghost/R/ghost_down_2.xpm"
-# define GHOST_R_L1 "./Fond/Ghost/R/ghost_left_1.xpm"
-# define GHOST_R_L2 "./Fond/Ghost/R/ghost_left_2.xpm"
-# define GHOST_R_R1 "./Fond/Ghost/R/ghost_right_1.xpm"
-# define GHOST_R_R2 "./Fond/Ghost/R/ghost_right_2.xpm"
-# define GHOST_R_U1 "./Fond/Ghost/R/ghost_up_1.xpm"
-# define GHOST_R_U2 "./Fond/Ghost/R/ghost_up_2.xpm"
-# define LOGO "./Fond/logo/logo.xpm"
+
 typedef struct coordition
 {
 	int	nb_cool;

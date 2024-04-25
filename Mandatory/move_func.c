@@ -6,7 +6,7 @@
 /*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 07:49:50 by bikourar          #+#    #+#             */
-/*   Updated: 2024/04/24 21:00:06 by bikourar         ###   ########.fr       */
+/*   Updated: 2024/04/25 14:33:54 by bikourar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	draw_all(t_inf *f, int y, int x)
 void	move_up(t_cor *_p, t_inf *f)
 {
 	if (f->p_[_p->_y - 1][_p->_x] == 69 && f->info.nb_cool == 0)
-		(write(1, "you wine\n", 10), exit (0));
+		(add_move(&f->info), write(1, "you win\n", 9), exit (0));
 	else if (f->p_[_p->_y - 1][_p->_x] == 69)
 		draw_all(f, _p->_y - 1, _p->_x);
 	else if (f->p_[_p->_y - 1][_p->_x] != 49)
@@ -51,7 +51,7 @@ void	move_up(t_cor *_p, t_inf *f)
 void	down_up(t_cor *_p, t_inf *f)
 {
 	if (f->p_[_p->_y + 1][_p->_x] == 69 && f->info.nb_cool == 0)
-		(write(1, "you wine\n", 10), exit(0));
+		(add_move(&f->info), write(1, "you win\n", 9), exit (0));
 	else if (f->p_[_p->_y + 1][_p->_x] == 69)
 		draw_all(f, _p->_y + 1, _p->_x);
 	else if (f->p_[_p->_y + 1][_p->_x] != 49)
@@ -78,7 +78,7 @@ void	down_up(t_cor *_p, t_inf *f)
 void	right_up(t_cor *_p, t_inf *f)
 {
 	if (f->p_[_p->_y][_p->_x + 1] == 69 && f->info.nb_cool == 0)
-		(write(1, "you wine\n", 10), exit (0));
+		(add_move(&f->info), write(1, "you win\n", 9), exit (0));
 	else if (f->p_[_p->_y][_p->_x + 1] == 69)
 		draw_all(f, _p->_y, _p->_x + 1);
 	else if (f->p_[_p->_y][_p->_x + 1] != 49)
@@ -105,7 +105,7 @@ void	right_up(t_cor *_p, t_inf *f)
 void	left_up(t_cor *_p, t_inf *f)
 {
 	if (f->p_[_p->_y][_p->_x - 1] == 69 && f->info.nb_cool == 0)
-		(write(1, "you wine\n", 10), exit(0));
+		(add_move(&f->info), write(1, "you win\n", 9), exit (0));
 	else if (f->p_[_p->_y][_p->_x - 1] == 69)
 		draw_all(f, _p->_y, _p->_x - 1);
 	else if (f->p_[_p->_y][_p->_x - 1] != 49)

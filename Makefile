@@ -1,14 +1,16 @@
 NAME = so_long
 NAME_BONUS = so_long_bonus
 
-SRCS = ./Mandatory/so_long.c ./Mandatory/get_next_line.c ./Mandatory/get_next_utiles.c \
-		./Mandatory/ft_utiles.c ./Mandatory/ft_split.c ./Mandatory/ft_utiles_1.c \
-		./Mandatory/ft_utiles_2.c ./Mandatory/draw_func.c ./Mandatory/draw_func1.c \
-		./Mandatory/move_func.c ./Mandatory/ft_itoa.c
-SRCS_BONUS = ./Bonus/so_long_bonus.c ./Bonus/get_next_bonus.c ./Bonus/get_utiles_bonus.c \
-		./Bonus/ft_utiles_bonus.c ./Bonus/ft_split_bonus.c ./Bonus/draw_func_bonus.c \
-		./Bonus/ft_utiles_1_bonus.c ./Bonus/ft_utiles_2_bonus.c ./Bonus/ft_itoa_bonus.c \
-		./Bonus/draw_func1_bonus.c ./Bonus/move_func_bonus.c ./Bonus/move_ghost_bonus.c ./Bonus/gost_bonus.c
+SRCS = $(addprefix Mandatory/, so_long.c\
+					get_next_line.c get_next_utiles.c \
+					ft_utiles.c ft_split.c ft_utiles_1.c \
+					ft_utiles_2.c draw_func.c draw_func1.c \
+					move_func.c ft_itoa.c)
+SRCS_BONUS = $(addprefix Bonus/, so_long_bonus.c get_next_bonus.c get_utiles_bonus.c \
+							ft_utiles_bonus.c ft_split_bonus.c draw_func_bonus.c \
+							ft_utiles_1_bonus.c ft_utiles_2_bonus.c ft_itoa_bonus.c \
+							draw_func1_bonus.c move_func_bonus.c move_ghost_bonus.c \
+							gost_bonus.c)
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 CFLAGS = -Wall -Werror -Wextra -Imlx

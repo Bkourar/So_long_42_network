@@ -6,7 +6,7 @@
 /*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 14:49:47 by bikourar          #+#    #+#             */
-/*   Updated: 2024/04/24 21:06:47 by bikourar         ###   ########.fr       */
+/*   Updated: 2024/04/25 14:16:50 by bikourar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,11 @@ int	mouse_hook(t_inf *map)
 void	put_scorce(t_inf *f)
 {
 	char	*scores;
-	
+
 	f->info.nb_move++;
 	scores = ft_itoa(f->info.nb_move);
 	draw_wall(f, (f->x / 2 + 2), 0);
-	mlx_string_put(f->m, f->wi, (f->x / 2) * 32 + 2 , 0, 0xFFFF00, "score");
+	mlx_string_put(f->m, f->wi, (f->x / 2) * 32 + 2, 0, 0xFFFF00, "score");
 	draw_wall(f, (f->x / 2 + 70), 0);
 	mlx_string_put(f->m, f->wi, (f->x / 2) * 32 + 70, 0, 0xFFFF00, scores);
 	free(scores);

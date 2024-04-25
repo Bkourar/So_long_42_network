@@ -1,109 +1,109 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gost.c                                             :+:      :+:    :+:   */
+/*   gost_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:26:29 by bikourar          #+#    #+#             */
-/*   Updated: 2024/04/24 18:28:05 by bikourar         ###   ########.fr       */
+/*   Updated: 2024/04/25 14:17:40 by bikourar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-static void	g_move_right(t_inf *data, int i)
+static void	g_move_right(t_inf *d, int i)
 {
-	coordition_ghost(data);
-	if (data->p_[data->g_y[i]][data->g_x[i] + 1] == data->p_[data->info._y][data->info._x])
+	coordition_ghost(d);
+	if (d->p_[d->g_y[i]][d->g_x[i] + 1] == d->p_[d->info._y][d->info._x])
 		(write(1, "GAME OVER\n", 11), exit(0));
-	if (data->p_[data->g_y[i]][data->g_x[i] + 1] == '0')
+	if (d->p_[d->g_y[i]][d->g_x[i] + 1] == '0')
 	{
-		data->p_[data->g_y[i]][data->g_x[i]] = '0';
-		data->p_[data->g_y[i]][data->g_x[i] + 1] = 'G';
-		draw_it(data, 4);
-		draw_floor(data, data->g_x[i], data->g_y[i]);
+		d->p_[d->g_y[i]][d->g_x[i]] = '0';
+		d->p_[d->g_y[i]][d->g_x[i] + 1] = 'G';
+		draw_it(d, 4);
+		draw_floor(d, d->g_x[i], d->g_y[i]);
 	}
-	else if (data->p_[data->g_y[i]][data->g_x[i] + 1] == 'C')
+	else if (d->p_[d->g_y[i]][d->g_x[i] + 1] == 'C')
 	{
-		data->p_[data->g_y[i]][data->g_x[i]] = 'C';
-		data->p_[data->g_y[i]][data->g_x[i] + 1] = 'G';
-		draw_it(data, 4);
-		draw_floor(data, data->g_x[i], data->g_y[i]);
-		draw_coll(data, data->g_x[i], data->g_y[i]);
+		d->p_[d->g_y[i]][d->g_x[i]] = 'C';
+		d->p_[d->g_y[i]][d->g_x[i] + 1] = 'G';
+		draw_it(d, 4);
+		draw_floor(d, d->g_x[i], d->g_y[i]);
+		draw_coll(d, d->g_x[i], d->g_y[i]);
 	}
-	free(data->g_x);
-	free(data->g_y);
+	free(d->g_x);
+	free(d->g_y);
 }
 
-static void	g_move_left(t_inf *data, int i)
+static void	g_move_left(t_inf *d, int i)
 {
-	coordition_ghost(data);
-	if (data->p_[data->g_y[i]][data->g_x[i] - 1] == data->p_[data->info._y][data->info._x])
+	coordition_ghost(d);
+	if (d->p_[d->g_y[i]][d->g_x[i] - 1] == d->p_[d->info._y][d->info._x])
 		(write(1, "GAME OVER\n", 11), exit(0));
-	if (data->p_[data->g_y[i]][data->g_x[i] - 1] == '0')
+	if (d->p_[d->g_y[i]][d->g_x[i] - 1] == '0')
 	{
-		data->p_[data->g_y[i]][data->g_x[i]] = '0';
-		data->p_[data->g_y[i]][data->g_x[i] - 1] = 'G';
-		draw_it(data, 3);
-		draw_floor(data, data->g_x[i], data->g_y[i]);
+		d->p_[d->g_y[i]][d->g_x[i]] = '0';
+		d->p_[d->g_y[i]][d->g_x[i] - 1] = 'G';
+		draw_it(d, 3);
+		draw_floor(d, d->g_x[i], d->g_y[i]);
 	}
-	else if (data->p_[data->g_y[i]][data->g_x[i] - 1] == 'C')
+	else if (d->p_[d->g_y[i]][d->g_x[i] - 1] == 'C')
 	{
-		data->p_[data->g_y[i]][data->g_x[i]] = 'C';
-		data->p_[data->g_y[i]][data->g_x[i] - 1] = 'G';
-		draw_it(data, 3);
-		draw_floor(data, data->g_x[i], data->g_y[i]);
-		draw_coll(data, data->g_x[i], data->g_y[i]);
+		d->p_[d->g_y[i]][d->g_x[i]] = 'C';
+		d->p_[d->g_y[i]][d->g_x[i] - 1] = 'G';
+		draw_it(d, 3);
+		draw_floor(d, d->g_x[i], d->g_y[i]);
+		draw_coll(d, d->g_x[i], d->g_y[i]);
 	}
-	free(data->g_x);
-	free(data->g_y);
+	free(d->g_x);
+	free(d->g_y);
 }
 
-static void	g_move_up(t_inf *data, int i)
+static void	g_move_up(t_inf *d, int i)
 {
-	coordition_ghost(data);
-	if (data->p_[data->g_y[i] - 1][data->g_x[i]] == data->p_[data->info._y][data->info._x])
+	coordition_ghost(d);
+	if (d->p_[d->g_y[i] - 1][d->g_x[i]] == d->p_[d->info._y][d->info._x])
 		(write(1, "GAME OVER\n", 11), exit(0));
-	if (data->p_[data->g_y[i] - 1][data->g_x[i]] == '0')
+	if (d->p_[d->g_y[i] - 1][d->g_x[i]] == '0')
 	{
-		data->p_[data->g_y[i]][data->g_x[i]] = '0';
-		data->p_[data->g_y[i] - 1][data->g_x[i]] = 'G';
-		draw_it(data, 1);
-		draw_floor(data, data->g_x[i], data->g_y[i]);
+		d->p_[d->g_y[i]][d->g_x[i]] = '0';
+		d->p_[d->g_y[i] - 1][d->g_x[i]] = 'G';
+		draw_it(d, 1);
+		draw_floor(d, d->g_x[i], d->g_y[i]);
 	}
-	else if (data->p_[data->g_y[i] - 1][data->g_x[i]] == 'C')
+	else if (d->p_[d->g_y[i] - 1][d->g_x[i]] == 'C')
 	{
-		data->p_[data->g_y[i]][data->g_x[i]] = 'C';
-		data->p_[data->g_y[i] - 1][data->g_x[i]] = 'G';
-		draw_it(data, 1);
-		draw_floor(data, data->g_x[i], data->g_y[i]);
-		draw_coll(data, data->g_x[i], data->g_y[i]);
+		d->p_[d->g_y[i]][d->g_x[i]] = 'C';
+		d->p_[d->g_y[i] - 1][d->g_x[i]] = 'G';
+		draw_it(d, 1);
+		draw_floor(d, d->g_x[i], d->g_y[i]);
+		draw_coll(d, d->g_x[i], d->g_y[i]);
 	}
-	free(data->g_x);
-	free(data->g_y);
+	free(d->g_x);
+	free(d->g_y);
 }
 
-static void	g_move_down(t_inf *data, int i)
+static void	g_move_down(t_inf *d, int i)
 {
-	coordition_ghost(data);
-	if (data->p_[data->g_y[i] + 1][data->g_x[i]] == data->p_[data->info._y][data->info._x])
+	coordition_ghost(d);
+	if (d->p_[d->g_y[i] + 1][d->g_x[i]] == d->p_[d->info._y][d->info._x])
 		(write(1, "GAME OVER\n", 11), exit(0));
-	if (data->p_[data->g_y[i] + 1][data->g_x[i]] == '0')
+	if (d->p_[d->g_y[i] + 1][d->g_x[i]] == '0')
 	{
-		data->p_[data->g_y[i]][data->g_x[i]] = '0';
-		data->p_[data->g_y[i] + 1][data->g_x[i]] = 'G';
-		draw_it(data, 2);
-		draw_floor(data, data->g_x[i], data->g_y[i]);
+		d->p_[d->g_y[i]][d->g_x[i]] = '0';
+		d->p_[d->g_y[i] + 1][d->g_x[i]] = 'G';
+		draw_it(d, 2);
+		draw_floor(d, d->g_x[i], d->g_y[i]);
 	}
-	else if (data->p_[data->g_y[i] + 1][data->g_x[i]] == 'C')
+	else if (d->p_[d->g_y[i] + 1][d->g_x[i]] == 'C')
 	{
-		data->p_[data->g_y[i]][data->g_x[i]] = 'C';
-		data->p_[data->g_y[i] + 1][data->g_x[i]] = 'G';
-		(draw_it(data, 2), draw_floor(data, data->g_x[i], data->g_y[i]));
-		draw_coll(data, data->g_x[i], data->g_y[i]);
+		d->p_[d->g_y[i]][d->g_x[i]] = 'C';
+		d->p_[d->g_y[i] + 1][d->g_x[i]] = 'G';
+		(draw_it(d, 2), draw_floor(d, d->g_x[i], d->g_y[i]));
+		draw_coll(d, d->g_x[i], d->g_y[i]);
 	}
-	(free(data->g_x), free(data->g_y));
+	(free(d->g_x), free(d->g_y));
 }
 
 int	ghost_ai(t_inf *data, int *x, int *y, int l)
